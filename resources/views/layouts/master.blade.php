@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -31,22 +32,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @guest
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/dashboard">
+                            {{ __('Dashboard') }}
+                            </router-link>
+                        </li>
 
-                        @else
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/dashboard">
-                                {{ __('Dashboard') }}
-                                </router-link>
-                            </li>
-
-                            <li class="nav-item">
-                                <router-link class="nav-link" to="/users">
-                                {{ __('Users') }}
-                                </router-lilnk>
-                            </li>
-
-                        @endguest
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/users">
+                            {{ __('Users') }}
+                            </router-link>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -86,10 +82,10 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <router-view></router-view>
         </main>
 
-        
+       
     </div>
 
     <!-- Scripts -->
